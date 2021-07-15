@@ -3,12 +3,8 @@ const screen1 = document.querySelector(".key1");
 grays.forEach (button => {
     button.addEventListener("click", () => {
         screen1.value += button.innerHTML;
-        // if(screen1.value.length % 3 === 0) screen1.value += ","
-        // console.log(addcomma);
-        // addcomma.join("");
     })
 })
-
 
 // in case of pushing "AC" button
 const screen2 = document.querySelector(".key5");
@@ -28,23 +24,26 @@ const oranges = document.querySelectorAll(".oranges, .key10");
 oranges.forEach (button => {
     button.addEventListener("click", () => {
         screen1.value += button.classList[3]
+        // console.log(button.classList);
 
         const enter = document.querySelector(".enter");
         enter.addEventListener("click", () => {
             // FIRST SOLUTION but it has math operation priority problems... ******
             // screen2.value = eval(screen1.value);
             
-            //SECOND SOLUTION*********
+            //SECOND SOLUTION*********        
             const thing = screen1.value;
             function solution(input) { return new Function('return ' + input)() }
-            for (i of ["+", "-", "*", "/", "%", "."]) {
+            
+            for (i of ["+", "-", "*", "/", "."]) {
                 if (screen1.value.endsWith(i)) screen2.value = "ERROR!";
             }
+            
             screen2.value = solution (thing);
             if (screen2.value === "NaN" || screen2.value === "Infinity") screen2.value = "ERROR!";
 
 
-            //SECOND SOLUTION ********
+            //THIRD SOLUTION ********
            /*  const operation = screen1.value.split(button.classList[3]);
             // console.log(operation);
             // console.log(button.classList[3]);
@@ -70,7 +69,7 @@ oranges.forEach (button => {
                     break;
             } 
             if (screen2.value === "NaN" || screen2.value === "Infinity") screen2.value = "ERROR!";
-            for (i of ["+", "-", "*", "/", "%", "."]) {
+            for (i of ["+", "-", "*", "/", "."]) {
                 if (screen1.value.endsWith(i)) screen2.value = "ERROR!";
             }
             */

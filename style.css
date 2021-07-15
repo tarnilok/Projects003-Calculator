@@ -42,7 +42,7 @@ body {
     transform: translateY(2px);
 }
 
-.key9, .key10, .key11 {
+.key9, .key11 {
     background-color: lightgray;
 }
 
@@ -63,6 +63,11 @@ body {
     height: 2rem;
     padding: .5rem .5rem 0 .5rem;
     letter-spacing: 5px;
+}
+
+.key9 {
+    grid-area: 3/1/span 1/span 2;
+    border-radius: 50px;
 }
 
 .key1 {
